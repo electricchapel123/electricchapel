@@ -1,0 +1,222 @@
+/*
+ * Stylesheet for Amogh Gajare's resume website.
+ *
+ * The design uses a clean, modern aesthetic with a subtle color palette and
+ * generous spacing to ensure readability. Sections are separated with
+ * card-like containers that float above a light background. Headings use
+ * a bold primary colour to draw the eye while body text remains dark
+ * against a white card background. The layout is responsive, adjusting
+ * gracefully across screen sizes using flexbox and CSS grid.
+ */
+
+/* Colour variables for easy adjustment */
+:root {
+  --primary-color: #0d6efd; /* a vibrant blue for headings and highlights */
+  --secondary-color: #6610f2; /* a purple accent used in the header gradient */
+  --background-color: #f5f7fa; /* very light grey background for the whole page */
+  --card-background: #ffffff; /* white card backgrounds */
+  --text-color: #333333; /* dark grey text colour for body copy */
+  --muted-color: #6c757d; /* muted grey for secondary text */
+  --border-radius: 8px; /* consistent rounding on cards */
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* soft shadow for cards */
+}
+
+/* Reset some default styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Global container for consistent horizontal padding */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Header / hero section */
+header.hero {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: #ffffff;
+  padding: 4rem 0 3rem;
+  text-align: center;
+}
+
+header.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+header.hero p.tagline {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Contact info under the hero */
+.contact-info {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ffffff;
+  opacity: 0.95;
+}
+
+.contact-item i {
+  color: #ffffff;
+}
+
+/* Button styling used for resume download link */
+.btn {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.btn:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Section styling */
+section {
+  margin-bottom: 2rem;
+}
+
+section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  position: relative;
+}
+
+section h2::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background: var(--primary-color);
+  left: 0;
+  bottom: -6px;
+  border-radius: 2px;
+}
+
+/* Card container to hold each section content */
+.card {
+  background-color: var(--card-background);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+/* Lists styling */
+.card ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.card ul li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.card ul li::before {
+  content: '\2022';
+  color: var(--primary-color);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Two column grid for sections like education or work experience if needed */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Job entry styling */
+.job {
+  margin-bottom: 1.5rem;
+}
+
+.job h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.2rem;
+}
+
+.job span.role {
+  font-style: italic;
+  color: var(--muted-color);
+  font-size: 0.95rem;
+}
+
+.job .duration {
+  font-size: 0.85rem;
+  color: var(--muted-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Skills list styling */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skills-list span {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 0.85rem;
+  color: var(--muted-color);
+}
+
+@media (max-width: 600px) {
+  header.hero h1 {
+    font-size: 2rem;
+  }
+  header.hero p.tagline {
+    font-size: 1rem;
+  }
+}
